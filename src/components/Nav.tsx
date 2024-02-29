@@ -8,12 +8,20 @@ export default function Nav({ user }: NavProps) {
   return (
     <nav>
       <div className="nav-wrapper">
-        <div className="nav__logo">Logo Here</div>
+        <Logo />
         <ul className="nav__links">
           {user ? <AuthenticatedLinks /> : <UnAuthenticatedLinks />}
         </ul>
       </div>
     </nav>
+  );
+}
+
+function Logo() {
+  return (
+    <Link to="/">
+      <div className="nav__logo">Logo Here</div>
+    </Link>
   );
 }
 
