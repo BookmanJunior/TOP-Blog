@@ -4,6 +4,7 @@ export type ArticleProps = {
   author: {
     username: string;
   };
+  content: string;
   date: string;
   _id: string;
 };
