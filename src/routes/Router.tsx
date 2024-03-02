@@ -3,6 +3,8 @@ import Root from "./Root";
 import Home from "./Home";
 import ArticlePage from "../components/ArticlePage";
 import ArticleLoader from "../components/ArticleLoader";
+import Login from "./Login";
+import SignUp from "./SignUp";
 
 export default function Router() {
   const router = createBrowserRouter([
@@ -18,6 +20,8 @@ export default function Router() {
             return ArticleLoader(params.id);
           },
         },
+        { path: "login", element: <Login /> },
+        { path: "sign-up", element: <SignUp /> },
       ],
     },
   ]);
