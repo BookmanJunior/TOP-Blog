@@ -1,7 +1,7 @@
 import ArticlesFetch from "./ArticlesFetch";
 import { Link } from "react-router-dom";
 import { ArticleProps } from "../types/ArticleType";
-
+import { format } from "date-fns";
 export default function ArticleFeed() {
   const { data, error, loading } = ArticlesFetch();
 
@@ -39,7 +39,7 @@ function Article({ article }: Article) {
       </Link>
       <div className="article__info">
         <span className="article__author">{article.author.username} - </span>
-        <span className="article__date">{article.date}</span>
+        <span className="article__date">{format(article.date, "PPP")}</span>
       </div>
     </article>
   );
