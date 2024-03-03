@@ -2,6 +2,8 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import FormInput from "../components/FormInput";
 import ValidationError from "../components/InputValidationError";
+import { UseUser } from "./Root";
+import { UserType } from "../types/UserType";
 
 type Credentials = {
   username: string;
@@ -23,6 +25,7 @@ export default function SingUp2() {
     confirmPassword: "",
   });
   const [errors, setErrors] = useState<ValidationErrors>();
+  const { setUser } = UseUser();
   const navigate = useNavigate();
 
   return (
@@ -50,6 +53,7 @@ export default function SingUp2() {
       <FormInput
         name="password"
         value={credentials.password}
+        type="password"
         onChange={(e) => {
           const inputVal = e.target.value;
           setCredentials({ ...credentials, password: inputVal });
@@ -71,6 +75,7 @@ export default function SingUp2() {
         name="confirmPassword"
         value={credentials.confirmPassword}
         title="Confirm Password"
+        type="password"
         onChange={(e) => {
           const inputVal = e.target.value;
           setCredentials({ ...credentials, confirmPassword: inputVal });
@@ -89,6 +94,7 @@ export default function SingUp2() {
       >
         <ValidationError error={errors?.confirmPassword} />
       </FormInput>
+      <ValidationError error={errors?.networkError} />
       <button>Sign Up</button>
     </form>
   );
@@ -114,9 +120,14 @@ export default function SingUp2() {
         setErrors(resError);
         return;
       }
+      const resData: UserType = await res.json();
+      setUser(resData);
       navigate("/");
     } catch (error) {
-      console.log(error);
+      setErrors({
+        ...errors,
+        networkError: "Network error. Please try again",
+      });
     }
   }
 
