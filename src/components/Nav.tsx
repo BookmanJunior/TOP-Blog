@@ -1,16 +1,22 @@
 import { Link } from "react-router-dom";
+import LogOutForm from "./LogOutForm";
+import { UserType, SetUserType } from "../types/UserType";
 
 type NavProps = {
-  user: object | null;
-};
+  user: UserType | null;
+} & SetUserType;
 
-export default function Nav({ user }: NavProps) {
+export default function Nav({ user, setUser }: NavProps) {
   return (
     <nav>
       <div className="nav-wrapper">
         <Logo />
         <ul className="nav__links">
-          {user ? <AuthenticatedLinks /> : <UnAuthenticatedLinks />}
+          {user ? (
+            <AuthenticatedLinks setUser={setUser} />
+          ) : (
+            <UnAuthenticatedLinks />
+          )}
         </ul>
       </div>
     </nav>
@@ -25,11 +31,11 @@ function Logo() {
   );
 }
 
-function AuthenticatedLinks() {
+function AuthenticatedLinks({ setUser }: SetUserType) {
   return (
     <>
       <NavLink to={"account"} title={"Account"} />
-      <NavLink to={"log-out"} title={"Log Out"} />
+      <LogOutForm setUser={setUser} />
     </>
   );
 }
