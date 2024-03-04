@@ -4,6 +4,7 @@ import FormInput from "../components/FormInput";
 import ValidationError from "../components/InputValidationError";
 import { UseUser } from "./Root";
 import { UserType } from "../types/UserType";
+import "../styles/SignUp.scss";
 
 type Credentials = {
   username: string;
@@ -18,7 +19,7 @@ type ValidationErrors = {
   networkError?: string;
 };
 
-export default function SingUp2() {
+export default function SingUp() {
   const [credentials, setCredentials] = useState<Credentials>({
     username: "",
     password: "",

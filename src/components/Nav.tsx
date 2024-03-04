@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import LogOutForm from "./LogOutForm";
 import { UserType, SetUserType } from "../types/UserType";
+import "../styles/Nav.scss";
 
 type NavProps = {
   user: UserType | null;
