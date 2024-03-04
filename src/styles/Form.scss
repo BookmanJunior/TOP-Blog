@@ -1,0 +1,14 @@
+@mixin flex {
+  display: flex;
+  flex-direction: column;
+}
+
+form {
+  @include flex;
+  max-width: 500px;
+  margin-inline: auto;
+
+  label {
+    @include flex;
+  }
+}

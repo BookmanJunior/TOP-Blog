@@ -1,0 +1,18 @@
+nav {
+  height: 70px;
+  padding-block: 1rem;
+}
+
+.nav-wrapper {
+  max-width: 950px;
+  margin-inline: auto;
+
+  display: flex;
+  justify-content: space-between;
+
+  ul {
+    list-style: none;
+    display: flex;
+    gap: 1rem;
+  }
+}

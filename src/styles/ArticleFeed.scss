@@ -1,0 +1,55 @@
+$article-width: 18.75rem;
+
+.article-feed {
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  max-width: 950px;
+  margin-inline: auto;
+
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax($article-width, 1fr));
+  gap: 1rem;
+  justify-items: center;
+}
+
+.article {
+  $body-clr: #f2f3f5;
+  $title-clr: #3e4348;
+
+  border-radius: 0.25rem;
+  max-width: $article-width;
+  overflow: hidden;
+
+  display: grid;
+  grid-template-rows: 10.625rem auto;
+
+  .article__info {
+    background-color: #f2f3f5;
+    width: $article-width;
+    padding: 1rem;
+
+    display: grid;
+
+    div:last-child {
+      align-self: end;
+    }
+  }
+
+  img {
+    height: 100%;
+    object-fit: cover;
+  }
+
+  a {
+    color: $title-clr;
+    place-self: start;
+
+    &:hover {
+      opacity: 0.9;
+    }
+  }
+
+  h2 {
+    font-size: 1rem;
+    font-weight: 600;
+  }
+}
