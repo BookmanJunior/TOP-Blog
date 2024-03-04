@@ -1,14 +1,17 @@
-@mixin flex {
+@mixin flex($gap: false) {
   display: flex;
   flex-direction: column;
+  @if $gap {
+    gap: $gap;
+  }
 }
 
 form {
-  @include flex;
-  max-width: 500px;
+  @include flex($gap: 0.5rem);
+  max-width: 400px;
   margin-inline: auto;
 
   label {
-    @include flex;
+    @include flex($gap: 0.2rem);
   }
 }
