@@ -6,5 +6,6 @@ export type ArticleProps = {
   };
   content: string;
   date: string;
+  featured: boolean;
   _id: string;
 };
