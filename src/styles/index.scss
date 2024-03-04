@@ -1,3 +1,5 @@
+@use "./Form.scss";
+
 *,
 *::before,
 *::after {
@@ -40,7 +42,30 @@ h6 {
   overflow-wrap: break-word;
 }
 
+a {
+  text-decoration: none;
+  color: #3e4348;
+}
+
+button {
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+}
+
+input {
+  padding: 0.2rem 0.5rem;
+}
+
 #root,
 #__next {
   isolation: isolate;
+}
+
+body {
+  font-family: "Times New Roman", Times, serif;
+}
+
+.error {
+  color: red;
 }
