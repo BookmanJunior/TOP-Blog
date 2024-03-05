@@ -1,3 +1,5 @@
+@use "./variables.scss";
+
 @mixin flex($gap: false) {
   display: flex;
   flex-direction: column;
@@ -6,12 +8,35 @@
   }
 }
 
-form {
+.sign-up-form,
+.login-form {
   @include flex($gap: 0.5rem);
+  background-color: var(--secondary-bg);
+  outline: var(--primary-outline);
+  border-radius: var(--primary-border-radius);
+  padding: 1rem;
   max-width: 400px;
   margin-inline: auto;
 
   label {
     @include flex($gap: 0.2rem);
+
+    .label-title {
+      text-transform: capitalize;
+    }
+  }
+
+  button {
+    border-radius: 8px;
+    border: 1px solid transparent;
+    padding: 0.6em 1.2em;
+    font-size: 1em;
+    font-weight: 500;
+    font-family: inherit;
+    background-color: #1a1a1a;
+    letter-spacing: 1px;
+    transition: border-color 0.25s;
+    color: var(--secondary-bg);
+    margin-block: 1rem;
   }
 }
