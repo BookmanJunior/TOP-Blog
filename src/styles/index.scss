@@ -1,3 +1,4 @@
+@use "./variables.scss";
 @use "./Form.scss";
 
 *,
@@ -62,10 +63,12 @@ input {
   isolation: isolate;
 }
 
-body {
-  font-family: "Times New Roman", Times, serif;
+#root {
+  min-height: 100vh;
+  background-color: var(--primary-bg);
+  font-family: var(--primary-font);
 }
 
 .error {
-  color: red;
+  color: var(--color-warning);
 }
