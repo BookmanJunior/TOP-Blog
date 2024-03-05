@@ -24,7 +24,7 @@ export default function FormInput({
 function InputLabel({ name, children, title = "" }: InputLabelProps) {
   return (
     <label htmlFor={name}>
-      {title ? title : name}
+      <span className="label-title">{title ? title : name}</span>
       {children}
     </label>
   );
