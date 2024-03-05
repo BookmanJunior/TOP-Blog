@@ -1,18 +1,27 @@
+@use "./variables.scss";
+
+nav,
+.nav-wrapper,
+ul {
+  display: flex;
+}
+
 nav {
   height: 70px;
   padding-block: 1rem;
+
+  align-items: center;
 }
 
 .nav-wrapper {
-  max-width: 950px;
+  max-width: var(--primary-width);
   margin-inline: auto;
 
-  display: flex;
   justify-content: space-between;
+  flex: 1;
 
   ul {
     list-style: none;
-    display: flex;
     gap: 1rem;
   }
 }
