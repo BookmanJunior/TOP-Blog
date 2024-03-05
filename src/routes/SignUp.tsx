@@ -30,7 +30,7 @@ export default function SingUp() {
   const navigate = useNavigate();
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form onSubmit={handleSubmit} className="sign-up-form">
       <FormInput
         name="username"
         value={credentials.username}

@@ -16,7 +16,7 @@ export default function Login() {
   const navigate = useNavigate();
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form onSubmit={handleSubmit} className="login-form">
       <FormInput name="username" />
       <FormInput name="password" type="password" />
       <ValidationError error={errors?.credentials} />
