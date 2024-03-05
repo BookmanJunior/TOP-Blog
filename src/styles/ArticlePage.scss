@@ -1,0 +1,14 @@
+@use "./variables.scss";
+
+.article-page {
+  margin-inline: auto;
+  max-width: var(--primary-width);
+  background-color: var(--secondary-bg);
+  outline: var(--primary-outline);
+  border-radius: var(--primary-border-radius);
+
+  h1,
+  .article-content {
+    padding: 1rem;
+  }
+}
