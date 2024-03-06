@@ -7,8 +7,10 @@ ul {
 }
 
 nav {
-  height: 70px;
+  height: 60px;
   padding-block: 1rem;
+  background-color: var(--secondary-bg);
+  border-bottom: var(--primary-outline);
 
   align-items: center;
 }
