@@ -8,18 +8,12 @@ export default function FeaturedArticle({
   article: ArticleProps;
 }) {
   return (
-    <Link to={`articles/${article._id}`}>
-      <div className="featured-article">
-        <div>
-          <span className="featured-tag">Featured Article</span>
-          <h1>{article.title}</h1>L
-        </div>
-        <img
-          src={article.cover}
-          alt={"Featured article cover"}
-          loading="lazy"
-        />
+    <Link to={`articles/${article._id}`} className="featured-article">
+      <div>
+        <span className="featured-tag">Featured Article</span>
+        <h1>{article.title}</h1>
       </div>
+      <img src={article.cover} alt={"Featured article cover"} loading="lazy" />
     </Link>
   );
 }
