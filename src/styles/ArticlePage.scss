@@ -1,4 +1,10 @@
 @use "./variables.scss";
+$bigGap: 2rem;
+$smallGap: 1rem;
+
+#root:has(.article-page) {
+  padding-bottom: $bigGap;
+}
 
 .article-page {
   margin-inline: auto;
@@ -6,9 +12,45 @@
   background-color: var(--secondary-bg);
   outline: var(--primary-outline);
   border-radius: var(--primary-border-radius);
+  overflow: hidden;
+  margin-top: $bigGap;
 
   h1,
-  .article-content {
-    padding: 1rem;
+  .article-body,
+  .article-comments,
+  .comment,
+  .comment-form > textarea {
+    padding: $smallGap $bigGap;
+  }
+}
+
+.comment,
+.comment-form > textarea {
+  outline: var(--primary-outline);
+  border-radius: var(--primary-border-radius);
+}
+
+.comment {
+  margin-block: $smallGap;
+
+  .comment-header {
+    display: flex;
+    gap: $smallGap;
+  }
+
+  .comment-author {
+    font-weight: 600;
+  }
+
+  .comment-date {
+    color: #575757;
+  }
+}
+
+.comment-form {
+  textarea {
+    border: none;
+    resize: none;
+    width: 100%;
   }
 }
