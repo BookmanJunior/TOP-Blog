@@ -2,7 +2,7 @@
 
 nav,
 .nav-wrapper,
-ul {
+.nav-wrapper > ul {
   display: flex;
 }
 
@@ -22,7 +22,7 @@ nav {
   justify-content: space-between;
   flex: 1;
 
-  ul {
+  & > ul {
     list-style: none;
     gap: 1rem;
   }
