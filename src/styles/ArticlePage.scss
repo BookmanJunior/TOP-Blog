@@ -22,6 +22,10 @@ $smallGap: 1rem;
   .comment-form > textarea {
     padding: $smallGap $bigGap;
   }
+
+  .article-body {
+    border-bottom: var(--primary-outline);
+  }
 }
 
 .comment,
