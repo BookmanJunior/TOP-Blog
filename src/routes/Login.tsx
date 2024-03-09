@@ -1,7 +1,7 @@
 import { useState } from "react";
 import FormInput from "../components/FormInput";
 import ValidationError from "../components/InputValidationError";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 import { UseUser } from "./Root";
 import { UserType } from "../types/UserType";
 
@@ -14,6 +14,7 @@ export default function Login() {
   const [errors, setErrors] = useState<LoginErrors>();
   const { setUser } = UseUser();
   const navigate = useNavigate();
+  const { state } = useLocation();
 
   return (
     <form onSubmit={handleSubmit} className="login-form">
@@ -45,7 +46,7 @@ export default function Login() {
       }
       const resData: UserType = await res.json();
       setUser(resData);
-      navigate("/");
+      state ? navigate(`${state.redirectTo}`) : navigate("/");
     } catch (error) {
       setErrors({
         ...errors,
