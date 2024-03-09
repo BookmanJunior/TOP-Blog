@@ -1,5 +1,5 @@
 type InputLabelProps = {
-  name: "username" | "password" | "confirmPassword";
+  name: "username" | "password" | "confirmPassword" | "cover" | "title";
   title?: string;
   children?: React.ReactNode | React.ReactNode[];
 };
