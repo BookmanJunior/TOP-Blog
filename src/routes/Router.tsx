@@ -5,6 +5,7 @@ import ArticlePage from "../components/ArticlePage";
 import ArticleLoader from "../components/ArticleLoader";
 import Login from "./Login";
 import SignUp from "./SignUp";
+import NewArticle from "./NewArticle";
 
 export default function Router() {
   const router = createBrowserRouter([
@@ -22,6 +23,7 @@ export default function Router() {
         },
         { path: "login", element: <Login /> },
         { path: "sign-up", element: <SignUp /> },
+        { path: "new-article", element: <NewArticle /> },
       ],
     },
   ]);
