@@ -59,7 +59,7 @@ type CommentSectionProps = {
 function CommentSection({ article, user }: CommentSectionProps) {
   return (
     <section className="article-comments">
-      <div className="comment-count">{article.comments.length} comments</div>
+      <h2 className="comment-count">{article.comments.length} comments</h2>
       {user ? <CommentForm articleId={article._id} /> : <UnAuthorizedLinks />}
       {article.comments.map((comment) => (
         <Comment key={comment._id} comment={comment} />
