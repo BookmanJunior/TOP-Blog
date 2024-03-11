@@ -2,6 +2,7 @@ import { format } from "date-fns";
 import { UserType } from "../types/UserType";
 import { commentType } from "../types/ArticleType";
 import { useState } from "react";
+import "../styles/Comment.scss";
 
 type CommentProps = commentType & UserType;
 
