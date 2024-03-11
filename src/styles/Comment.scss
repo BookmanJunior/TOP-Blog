@@ -1,0 +1,54 @@
+@use "./variables.scss";
+
+.comment-wrapper {
+  outline: var(--primary-outline);
+  border-radius: var(--primary-border-radius);
+}
+
+.comment {
+  display: grid;
+  margin-block: var(--small-gap);
+  gap: var(--small-gap);
+  grid-template-columns: 10px 1fr;
+
+  & > button span {
+    display: inline-block;
+    transition: rotate 200ms ease-out;
+    font-size: 1.2rem;
+  }
+
+  &:has([data-expanded="true"]) > button span {
+    rotate: 45deg;
+  }
+
+  .comment-wrapper {
+    padding: 0.5rem var(--big-gap);
+  }
+
+  .comment-header {
+    display: flex;
+    gap: var(--small-gap);
+  }
+
+  .comment-author {
+    font-weight: 600;
+  }
+
+  .comment-date {
+    color: #575757;
+  }
+}
+
+.comment-body {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows 200ms ease-out;
+
+  &[data-expanded="true"] {
+    grid-template-rows: 1fr;
+  }
+
+  & > div {
+    overflow: hidden;
+  }
+}
