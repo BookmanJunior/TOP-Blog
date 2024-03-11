@@ -1,9 +1,7 @@
 @use "./variables.scss";
-$bigGap: 2rem;
-$smallGap: 1rem;
 
 #root:has(.article-page) {
-  padding-bottom: $bigGap;
+  padding-bottom: var(--big-gap);
 }
 
 .article-page {
@@ -13,48 +11,42 @@ $smallGap: 1rem;
   outline: var(--primary-outline);
   border-radius: var(--primary-border-radius);
   overflow: hidden;
-  margin-top: $bigGap;
+  margin-top: var(--big-gap);
 
   h1,
   .article-body,
-  .article-comments,
-  .comment,
-  .comment-form > textarea {
-    padding: $smallGap $bigGap;
+  .article-comments {
+    padding: var(--small-gap) var(--big-gap);
   }
 
-  .article-body {
-    border-bottom: var(--primary-outline);
-  }
-}
-
-.comment,
-.comment-form > textarea {
-  outline: var(--primary-outline);
-  border-radius: var(--primary-border-radius);
-}
-
-.comment {
-  margin-block: $smallGap;
-
-  .comment-header {
+  .article-author {
     display: flex;
-    gap: $smallGap;
+    gap: 0.5rem;
+    padding: var(--small-gap) var(--big-gap) 0 var(--big-gap);
   }
 
-  .comment-author {
-    font-weight: 600;
-  }
-
-  .comment-date {
-    color: #575757;
+  h1 {
+    padding-block: 0;
+    line-height: 1;
   }
 }
 
-.comment-form {
-  textarea {
-    border: none;
-    resize: none;
-    width: 100%;
+.article-body {
+  border-bottom: var(--primary-outline);
+  & > ul,
+  ol {
+    padding-inline: var(--small-gap);
+  }
+
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    margin-block: var(--small-gap) 0.5rem;
+  }
+
+  li {
+    margin-block: 0.5rem;
   }
 }
