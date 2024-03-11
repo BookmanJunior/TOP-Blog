@@ -1,8 +1,47 @@
 @use "./variables.scss";
 
-.comment-wrapper {
+.article-comments {
+  h2 {
+    margin-bottom: 0.5rem;
+  }
+}
+
+.comment-wrapper,
+.comment-form > textarea {
   outline: var(--primary-outline);
   border-radius: var(--primary-border-radius);
+}
+
+.comment-form {
+  textarea {
+    border: none;
+    resize: none;
+    width: 100%;
+    padding: var(--small-gap) var(--big-gap);
+  }
+}
+
+.call-to-action {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+
+  & > .button {
+    border-radius: 8px;
+    padding: 0.6em 1.2em;
+    font-size: 0.9em;
+    font-weight: 500;
+    letter-spacing: 1px;
+    transition: border-color 0.25s;
+    color: inherit;
+    outline: var(--primary-outline);
+    margin-block: 1rem;
+    transition: 150ms ease-in-out;
+
+    &:hover {
+      background-color: var(--primary-bg);
+    }
+  }
 }
 
 .comment {
