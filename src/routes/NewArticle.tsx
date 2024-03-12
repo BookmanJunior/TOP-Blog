@@ -1,6 +1,6 @@
 import "@mdxeditor/editor/style.css";
 import { UseUser } from "./Root";
-import { useLocation, Navigate } from "react-router-dom";
+import { useLocation, Navigate, useNavigate } from "react-router-dom";
 import FormInput from "../components/FormInput";
 import { useState } from "react";
 import ArticleEditor from "../components/ArticleEditor";
@@ -9,8 +9,13 @@ export default function NewArticle() {
   const [articleCover, setArticleCover] = useState("");
   const [articleTitle, setArticleTitle] = useState("");
   const [articleContent, setArticleContent] = useState("");
-  const { user } = UseUser();
+  const { user, loading } = UseUser();
   const location = useLocation();
+  const navigate = useNavigate();
+
+  if (loading) {
+    return <div className="spinner"></div>;
+  }
 
   if (!user) {
     return (
@@ -41,7 +46,7 @@ export default function NewArticle() {
         return;
       }
 
-      console.log(resResult);
+      navigate(`/articles/${resResult._id}`);
     } catch (error) {
       console.log(error);
     }
