@@ -72,3 +72,42 @@ input {
 .error {
   color: var(--color-warning);
 }
+
+.spinner {
+  display: grid;
+  min-height: calc(100vh - 60px);
+  place-content: center;
+
+  &::before,
+  &::after {
+    content: "";
+    border-radius: 50%;
+    border: 3px solid transparent;
+    border-style: dotted;
+    border-bottom-style: solid;
+    animation: spin 1.5s linear infinite;
+    grid-area: 1 / 1 / 1 / 1;
+  }
+
+  &::before {
+    width: 48px;
+    height: 48px;
+    border-color: rgb(245, 125, 26);
+  }
+
+  &::after {
+    width: 24px;
+    height: 24px;
+    border-color: rgb(172, 172, 172);
+    border-width: 2px;
+    border-left-style: solid;
+    animation-direction: reverse;
+    place-self: center;
+  }
+}
+
+@keyframes spin {
+  100% {
+    rotate: 1turn;
+  }
+}
