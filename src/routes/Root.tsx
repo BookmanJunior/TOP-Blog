@@ -1,39 +1,20 @@
-import { useEffect, useState } from "react";
 import Nav from "../components/Nav";
 import { Outlet, useOutletContext } from "react-router-dom";
 import { UserType, SetUserType } from "../types/UserType";
+import AutoLoginFetch from "../components/AutoLoginFetch";
 
 type RootContext = {
   user: UserType | null;
+  loading: boolean;
 } & SetUserType;
 
 export default function Root() {
-  const [user, setUser] = useState<UserType | null>(null);
-
-  useEffect(() => {
-    async function autoLogin() {
-      try {
-        const res = await fetch("http://localhost:3000/auto-login", {
-          method: "POST",
-          mode: "cors",
-          credentials: "include",
-        });
-
-        if (res.ok) {
-          const resData: UserType = await res.json();
-          setUser(resData);
-        }
-      } catch (error) {
-        console.log(error);
-      }
-    }
-    autoLogin();
-  }, []);
+  const { user, setUser, loading } = AutoLoginFetch();
 
   return (
     <>
       <Nav user={user} setUser={setUser} />
-      <Outlet context={{ user, setUser }} />
+      <Outlet context={{ user, setUser, loading }} />
     </>
   );
 }
