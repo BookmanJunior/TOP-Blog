@@ -2,7 +2,6 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Root from "./Root";
 import Home from "./Home";
 import ArticlePage from "../components/ArticlePage";
-import ArticleLoader from "../components/ArticleLoader";
 import Login from "./Login";
 import SignUp from "./SignUp";
 import NewArticle from "./NewArticle";
@@ -17,9 +16,6 @@ export default function Router() {
         {
           path: "articles/:id",
           element: <ArticlePage />,
-          loader: ({ params }) => {
-            return ArticleLoader(params.id);
-          },
         },
         { path: "login", element: <Login /> },
         { path: "sign-up", element: <SignUp /> },
