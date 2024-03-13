@@ -15,6 +15,7 @@ type CommentFormProps = {
 export default function CommentForm({ article, setArticle }: CommentFormProps) {
   const [comment, setComment] = useState("");
   const [errors, setErrors] = useState<CommentFormError>();
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const formRef = useRef<HTMLFormElement>(null);
 
   return (
@@ -26,6 +27,7 @@ export default function CommentForm({ article, setArticle }: CommentFormProps) {
         value={comment}
         onChange={(e) => setComment(e.target.value)}
         onKeyDown={handleEnter}
+        disabled={isSubmitting}
       ></textarea>
       <ValidationError error={errors?.comment ?? errors?.networkError} />
     </form>
@@ -39,6 +41,7 @@ export default function CommentForm({ article, setArticle }: CommentFormProps) {
       return;
     }
 
+    setIsSubmitting(true);
     try {
       const res = await fetch("http://localhost:3000/comments", {
         method: "POST",
@@ -62,6 +65,8 @@ export default function CommentForm({ article, setArticle }: CommentFormProps) {
       setErrors({
         networkError: "Network Error. Please try again.",
       });
+    } finally {
+      setIsSubmitting(false);
     }
   }
 
