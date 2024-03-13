@@ -1,12 +1,18 @@
 import { useRef, useState } from "react";
 import ValidationError from "./InputValidationError";
+import { ArticleProps } from "../types/ArticleType";
 
 type CommentFormError = {
   comment?: string;
   networkError?: string;
 };
 
-export default function CommentForm({ articleId }: { articleId: string }) {
+type CommentFormProps = {
+  article: ArticleProps;
+  setArticle: (article: ArticleProps) => void;
+};
+
+export default function CommentForm({ article, setArticle }: CommentFormProps) {
   const [comment, setComment] = useState("");
   const [errors, setErrors] = useState<CommentFormError>();
   const formRef = useRef<HTMLFormElement>(null);
@@ -39,7 +45,7 @@ export default function CommentForm({ articleId }: { articleId: string }) {
         mode: "cors",
         credentials: "include",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ comment, articleId }),
+        body: JSON.stringify({ comment, articleId: article._id }),
       });
 
       if (res.status >= 400) {
@@ -49,9 +55,9 @@ export default function CommentForm({ articleId }: { articleId: string }) {
       }
 
       const resData = await res.json();
-      console.log(resData);
-      setErrors({});
+      setArticle({ ...article, comments: [resData, ...article.comments] });
       setComment("");
+      setErrors({});
     } catch (error) {
       setErrors({
         networkError: "Network Error. Please try again.",
