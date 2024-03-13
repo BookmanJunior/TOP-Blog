@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import LogOutForm from "./LogOutForm";
 import { UserType, SetUserType } from "../types/UserType";
 import "../styles/Nav.scss";
@@ -35,6 +35,7 @@ function Logo() {
 function AuthenticatedLinks({ setUser }: SetUserType) {
   return (
     <>
+      <NavLink to="new-article" title="Add Article" />
       <NavLink to={"account"} title={"Account"} />
       <LogOutForm setUser={setUser} />
     </>
@@ -56,9 +57,12 @@ type NavLinkProps = {
 };
 
 function NavLink({ to, title }: NavLinkProps) {
+  const location = useLocation();
   return (
     <li className="nav__link">
-      <Link to={`/${to}`}>{title}</Link>
+      <Link to={`/${to}`} state={{ redirectTo: location.pathname }}>
+        {title}
+      </Link>
     </li>
   );
 }
