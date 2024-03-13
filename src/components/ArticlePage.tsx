@@ -1,4 +1,4 @@
-import { Link, useLoaderData, useLocation } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { ArticleProps } from "../types/ArticleType";
 import Comment from "./Comment";
 import CommentForm from "./CommentForm";
@@ -6,17 +6,22 @@ import Markdown from "react-markdown";
 import { format } from "date-fns";
 import "../styles/ArticlePage.scss";
 import { UseUser } from "../routes/Root";
+import ArticleLoader from "./ArticleLoader";
 import { UserType } from "../types/UserType";
 
 export default function ArticlePage() {
   const { user } = UseUser();
-  const article = useLoaderData() as ArticleProps;
+  const { article, setArticle, loading } = ArticleLoader();
+
+  if (loading) {
+    return <div className="spinner"></div>;
+  }
 
   return (
     <main className="article-page">
       <ArticleHeader article={article} />
       <ArticleBody article={article} />
-      <CommentSection article={article} user={user} />
+      <CommentSection article={article} setArticle={setArticle} user={user} />
     </main>
   );
 }
@@ -54,13 +59,18 @@ function ArticleBody({ article }: { article: ArticleProps }) {
 type CommentSectionProps = {
   article: ArticleProps;
   user: UserType | null;
+  setArticle: (article: ArticleProps) => void;
 };
 
-function CommentSection({ article, user }: CommentSectionProps) {
+function CommentSection({ article, setArticle, user }: CommentSectionProps) {
   return (
     <section className="article-comments">
       <h2 className="comment-count">{article.comments.length} comments</h2>
-      {user ? <CommentForm articleId={article._id} /> : <UnAuthorizedLinks />}
+      {user ? (
+        <CommentForm article={article} setArticle={setArticle} />
+      ) : (
+        <UnAuthorizedLinks />
+      )}
       {article.comments.map((comment) => (
         <Comment key={comment._id} comment={comment} />
       ))}
