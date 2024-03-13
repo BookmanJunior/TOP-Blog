@@ -6,7 +6,7 @@
   }
 }
 
-.comment-wrapper,
+.comment,
 .comment-form > textarea {
   outline: var(--primary-outline);
   border-radius: var(--primary-border-radius);
@@ -47,21 +47,10 @@
 .comment {
   display: grid;
   margin-block: var(--small-gap);
-  gap: var(--small-gap);
-  grid-template-columns: 10px 1fr;
+  padding: 0.5rem var(--big-gap);
 
-  & > button span {
-    display: inline-block;
-    transition: rotate 200ms ease-out;
-    font-size: 1.2rem;
-  }
-
-  &:has([data-expanded="true"]) > button span {
-    rotate: 45deg;
-  }
-
-  .comment-wrapper {
-    padding: 0.5rem var(--big-gap);
+  &:has([data-expanded="true"]) button {
+    rotate: 180deg;
   }
 
   .comment-header {
@@ -75,6 +64,23 @@
 
   .comment-date {
     color: #575757;
+  }
+}
+
+.comment-header {
+  & > button {
+    display: inline-block;
+    transition: rotate 200ms ease-out;
+    display: grid;
+    place-content: center;
+
+    &::before {
+      content: "";
+      border: solid black;
+      rotate: -135deg;
+      border-width: 0 3px 3px 0;
+      padding: 3px;
+    }
   }
 }
 
