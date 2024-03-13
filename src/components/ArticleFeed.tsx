@@ -1,27 +1,17 @@
-import ArticlesFetch from "./ArticlesFetch";
 import { Link } from "react-router-dom";
 import { ArticleProps } from "../types/ArticleType";
-import FeaturedArticle from "./FeaturedArticle";
 import { format } from "date-fns";
 import "../styles/ArticleFeed.scss";
 
-export default function ArticleFeed() {
-  const { data, error, loading } = ArticlesFetch();
-  const featuredArticle = data.filter((article) => article.featured)[0];
-
-  if (loading) {
-    return <div>Loading...</div>;
-  }
-
-  if (error) {
-    console.log(error);
-  }
-
+export default function ArticleFeed({
+  articles,
+}: {
+  articles: ArticleProps[];
+}) {
   return (
     <>
-      <FeaturedArticle article={featuredArticle} />
       <div className="article-feed">
-        {data.map((article) => (
+        {articles.map((article) => (
           <Article key={article._id} article={article} />
         ))}
       </div>
