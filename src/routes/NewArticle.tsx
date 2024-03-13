@@ -9,6 +9,7 @@ export default function NewArticle() {
   const [articleCover, setArticleCover] = useState("");
   const [articleTitle, setArticleTitle] = useState("");
   const [articleContent, setArticleContent] = useState("");
+  const [submitting, setSubmitting] = useState(true);
   const { user, loading } = UseUser();
   const location = useLocation();
   const navigate = useNavigate();
@@ -23,9 +24,33 @@ export default function NewArticle() {
     );
   }
 
+  return (
+    <>
+      <form className="article-form" onSubmit={handleSubmit}>
+        <section className="article-form-wrapper">
+          <FormInput
+            name="cover"
+            title="Cover"
+            type="url"
+            onChange={(e) => setArticleCover(e.target.value)}
+          ></FormInput>
+          <FormInput
+            name="title"
+            title="Title"
+            onChange={(e) => setArticleTitle(e.target.value)}
+          ></FormInput>
+          <ArticleEditor setArticleContent={setArticleContent} />
+        </section>
+        <button className="submit-button" disabled={submitting}>
+          Submit
+        </button>
+      </form>
+    </>
+  );
+
   async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
-
+    setSubmitting(true);
     try {
       const res = await fetch("http://localhost:3000/articles", {
         method: "POST",
@@ -49,28 +74,8 @@ export default function NewArticle() {
       navigate(`/articles/${resResult._id}`);
     } catch (error) {
       console.log(error);
+    } finally {
+      setSubmitting(false);
     }
   }
-
-  return (
-    <>
-      <form className="article-form" onSubmit={handleSubmit}>
-        <section className="article-form-wrapper">
-          <FormInput
-            name="cover"
-            title="Cover"
-            type="url"
-            onChange={(e) => setArticleCover(e.target.value)}
-          ></FormInput>
-          <FormInput
-            name="title"
-            title="Title"
-            onChange={(e) => setArticleTitle(e.target.value)}
-          ></FormInput>
-          <ArticleEditor setArticleContent={setArticleContent} />
-        </section>
-        <button>Submit</button>
-      </form>
-    </>
-  );
 }

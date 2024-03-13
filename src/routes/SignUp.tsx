@@ -26,6 +26,7 @@ export default function SingUp() {
     confirmPassword: "",
   });
   const [errors, setErrors] = useState<ValidationErrors>();
+  const [submitting, setSubmitting] = useState(false);
   const { setUser } = UseUser();
   const navigate = useNavigate();
 
@@ -96,7 +97,9 @@ export default function SingUp() {
         <ValidationError error={errors?.confirmPassword} />
       </FormInput>
       <ValidationError error={errors?.networkError} />
-      <button>Sign Up</button>
+      <button className="submit-button" disabled={submitting}>
+        Sign Up
+      </button>
     </form>
   );
 
@@ -107,6 +110,7 @@ export default function SingUp() {
       return;
     }
 
+    setSubmitting(true);
     try {
       const res = await fetch("http://localhost:3000/sign-up", {
         method: "POST",
@@ -129,6 +133,8 @@ export default function SingUp() {
         ...errors,
         networkError: "Network error. Please try again",
       });
+    } finally {
+      setSubmitting(false);
     }
   }
 

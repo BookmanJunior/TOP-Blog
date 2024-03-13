@@ -12,6 +12,7 @@ type LoginErrors = {
 
 export default function Login() {
   const [errors, setErrors] = useState<LoginErrors>();
+  const [submitting, setSubmitting] = useState(false);
   const { setUser } = UseUser();
   const navigate = useNavigate();
   const { state } = useLocation();
@@ -22,7 +23,9 @@ export default function Login() {
       <FormInput name="password" type="password" />
       <ValidationError error={errors?.credentials} />
       <ValidationError error={errors?.networkError} />
-      <button>Login</button>
+      <button className="submit-button" disabled={submitting}>
+        Login
+      </button>
     </form>
   );
 
@@ -31,6 +34,7 @@ export default function Login() {
     const formData = new FormData(e.currentTarget);
 
     try {
+      setSubmitting(true);
       const res = await fetch("http://localhost:3000/login", {
         method: "POST",
         mode: "cors",
@@ -52,6 +56,8 @@ export default function Login() {
         ...errors,
         networkError: "Network error. Please try again",
       });
+    } finally {
+      setSubmitting(false);
     }
   }
 }
