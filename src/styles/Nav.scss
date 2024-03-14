@@ -20,10 +20,20 @@ nav {
   margin-inline: auto;
 
   justify-content: space-between;
+  align-items: center;
   flex: 1;
 
   & > ul {
     list-style: none;
     gap: 1rem;
+  }
+
+  .nav__link.active,
+  .nav__link .active {
+    color: var(--color-accent);
+
+    & path {
+      fill: var(--color-accent);
+    }
   }
 }
