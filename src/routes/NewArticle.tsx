@@ -9,7 +9,7 @@ export default function NewArticle() {
   const [articleCover, setArticleCover] = useState("");
   const [articleTitle, setArticleTitle] = useState("");
   const [articleContent, setArticleContent] = useState("");
-  const [submitting, setSubmitting] = useState(true);
+  const [submitting, setSubmitting] = useState(false);
   const { user, loading } = UseUser();
   const location = useLocation();
   const navigate = useNavigate();
@@ -21,6 +21,12 @@ export default function NewArticle() {
   if (!user) {
     return (
       <Navigate to="/login" replace state={{ redirectTo: location.pathname }} />
+    );
+  }
+
+  if (user.role !== "admin") {
+    return (
+      <Navigate to="/" replace state={{ redirectTo: location.pathname }} />
     );
   }
 
