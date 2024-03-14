@@ -8,35 +8,99 @@
   }
 }
 
+@mixin formButton {
+  border-radius: 8px;
+  border: 1px solid transparent;
+  padding: 0.6em 1.2em;
+  width: min(200px, 100%);
+  font-size: 1em;
+  font-weight: 500;
+  font-family: inherit;
+  background-color: #1a1a1a;
+  letter-spacing: 1px;
+  transition: border-color 0.25s;
+  color: var(--secondary-bg);
+  margin-block: var(--small-gap);
+}
+
 .sign-up-form,
-.login-form {
+.login-form,
+.article-form-wrapper {
   @include flex($gap: 0.5rem);
   background-color: var(--secondary-bg);
   outline: var(--primary-outline);
   border-radius: var(--primary-border-radius);
-  padding: 1rem;
+  padding: var(--small-gap);
   max-width: 400px;
   margin-inline: auto;
+  margin-top: 2rem;
 
-  label {
-    @include flex($gap: 0.2rem);
+  & > button {
+    @include formButton();
+    place-self: start;
+  }
+}
 
-    .label-title {
-      text-transform: capitalize;
-    }
+.submit-button:disabled {
+  position: relative;
+  cursor: not-allowed;
+
+  &::before {
+    content: "";
+    position: absolute;
+    left: 30px;
+    display: inline-block;
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    border: 5px solid transparent;
+    border-right-color: orange;
+    animation: buttonSpin 800ms linear infinite;
+  }
+}
+
+@keyframes buttonSpin {
+  to {
+    rotate: 1turn;
+  }
+}
+
+label {
+  @include flex($gap: 0.2rem);
+
+  .label-title {
+    text-transform: capitalize;
   }
 
-  button {
-    border-radius: 8px;
-    border: 1px solid transparent;
-    padding: 0.6em 1.2em;
-    font-size: 1em;
-    font-weight: 500;
-    font-family: inherit;
-    background-color: #1a1a1a;
-    letter-spacing: 1px;
-    transition: border-color 0.25s;
-    color: var(--secondary-bg);
-    margin-block: 1rem;
+  & > input {
+    border: none;
+    outline: var(--primary-outline);
+    border-radius: var(--primary-border-radius);
+
+    &:focus {
+      outline-width: 2px;
+      outline-color: rgba(0, 0, 0, 0.3);
+    }
+  }
+}
+
+.article-form {
+  margin-inline: auto;
+
+  & > button {
+    @include formButton();
+  }
+}
+
+.article-form,
+.article-form-wrapper {
+  max-width: var(--primary-width);
+}
+
+.mdxeditor {
+  min-height: 600px;
+
+  ul {
+    padding-inline: var(--small-gap);
   }
 }
