@@ -1,6 +1,7 @@
-import { Link, useLocation } from "react-router-dom";
+import { NavLink, useLocation } from "react-router-dom";
 import LogOutForm from "./LogOutForm";
 import { UserType, SetUserType } from "../types/UserType";
+import LogoSvg from "../assets/logo.svg?react";
 import "../styles/Nav.scss";
 
 type NavProps = {
@@ -26,45 +27,51 @@ export default function Nav({ user, setUser }: NavProps) {
 
 function Logo() {
   return (
-    <Link to="/">
-      <div className="nav__logo">Logo Here</div>
-    </Link>
+    <NavLink className="nav__link" to="/">
+      <LogoSvg />
+    </NavLink>
   );
 }
 
 function AuthenticatedLinks({ user, setUser }: NavProps) {
   return (
     <>
-      {user?.role === "admin" && (
-        <NavLink to="new-article" title="Add Article" />
-      )}
-      <NavLink to={"account"} title={"Account"} />
+      {user?.role === "admin" && <Link to="new-article" title="Add Article" />}
+      <Link to={"account"} title={"Account"} />
       <LogOutForm setUser={setUser} />
     </>
   );
 }
 
 function UnAuthenticatedLinks() {
+  const location = useLocation();
   return (
     <>
-      <NavLink to={"login"} title={"Login"} />
-      <NavLink to={"sign-up"} title={"Sign Up"} />
+      <Link
+        to={"login"}
+        title={"Login"}
+        state={{
+          redirectTo:
+            location.pathname === "/sign-up" ? "/" : location.pathname,
+        }}
+      />
+      <Link to={"sign-up"} title={"Sign Up"} />
     </>
   );
 }
 
-type NavLinkProps = {
+type LinkProps = {
   to: string;
   title: string;
+  state?: object;
 };
 
-function NavLink({ to, title }: NavLinkProps) {
-  const location = useLocation();
+function Link({ to, title, ...props }: LinkProps) {
   return (
     <li className="nav__link">
-      <Link to={`/${to}`} state={{ redirectTo: location.pathname }}>
+      <NavLink to={`/${to}`} {...props}>
         {title}
-      </Link>
+      </NavLink>
     </li>
   );
 }
