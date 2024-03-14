@@ -43,11 +43,6 @@ h6 {
   overflow-wrap: break-word;
 }
 
-a {
-  text-decoration: none;
-  color: #3e4348;
-}
-
 button {
   border: none;
   background-color: transparent;
@@ -67,6 +62,17 @@ input {
   min-height: 100vh;
   background-color: var(--primary-bg);
   font-family: var(--primary-font);
+}
+
+.nav__link > a,
+.article a,
+.featured-article {
+  text-decoration: none;
+}
+
+.nav__link > a,
+article a {
+  color: #000000;
 }
 
 .error {
