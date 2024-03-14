@@ -13,6 +13,11 @@
   overflow: hidden;
   margin-top: var(--big-gap);
 
+  header > img {
+    max-height: 400px;
+    margin-inline: auto;
+  }
+
   h1,
   .article-body,
   .article-comments {
