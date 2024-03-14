@@ -1,7 +1,6 @@
 export type UserType = {
-  user: {
-    username: string;
-  };
+  username: string;
+  role: "user" | "admin";
 };
 
 export type SetUserType = {
