@@ -74,6 +74,8 @@ input {
 }
 
 .spinner {
+  --spinner-size: 48px;
+
   display: grid;
   min-height: calc(100vh - 60px);
   place-content: center;
@@ -81,6 +83,7 @@ input {
   &::before,
   &::after {
     content: "";
+    aspect-ratio: 1;
     border-radius: 50%;
     border: 3px solid transparent;
     border-style: dotted;
@@ -90,15 +93,13 @@ input {
   }
 
   &::before {
-    width: 48px;
-    height: 48px;
-    border-color: rgb(245, 125, 26);
+    width: var(--spinner-size);
+    border-color: var(--color-accent);
   }
 
   &::after {
-    width: 24px;
-    height: 24px;
-    border-color: rgb(172, 172, 172);
+    width: calc(var(--spinner-size) / 2);
+    border-color: #acacac;
     border-width: 2px;
     border-left-style: solid;
     animation-direction: reverse;
