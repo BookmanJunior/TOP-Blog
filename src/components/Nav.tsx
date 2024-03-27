@@ -15,7 +15,7 @@ export default function Nav({ user, setUser }: NavProps) {
         <Logo />
         <ul className="nav__links">
           {user ? (
-            <AuthenticatedLinks user={user} setUser={setUser} />
+            <AuthenticatedLinks setUser={setUser} />
           ) : (
             <UnAuthenticatedLinks />
           )}
@@ -33,10 +33,9 @@ function Logo() {
   );
 }
 
-function AuthenticatedLinks({ user, setUser }: NavProps) {
+function AuthenticatedLinks({ setUser }: SetUserType) {
   return (
     <>
-      {user?.role === "admin" && <Link to="new-article" title="Add Article" />}
       <Link to={"account"} title={"Account"} />
       <LogOutForm setUser={setUser} />
     </>
