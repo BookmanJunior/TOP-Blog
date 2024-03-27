@@ -54,7 +54,7 @@
     height: 24px;
     border-radius: 50%;
     border: 5px solid transparent;
-    border-right-color: orange;
+    border-right-color: var(--color-accent);
     animation: buttonSpin 800ms linear infinite;
   }
 }
@@ -95,12 +95,4 @@ label {
 .article-form,
 .article-form-wrapper {
   max-width: var(--primary-width);
-}
-
-.mdxeditor {
-  min-height: 600px;
-
-  ul {
-    padding-inline: var(--small-gap);
-  }
 }
