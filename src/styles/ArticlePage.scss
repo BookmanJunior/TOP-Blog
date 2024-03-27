@@ -1,5 +1,3 @@
-@use "./variables.scss";
-
 #root:has(.article-page) {
   padding-bottom: var(--big-gap);
 }
