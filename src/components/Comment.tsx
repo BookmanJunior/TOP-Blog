@@ -1,12 +1,9 @@
 import { format } from "date-fns";
-import { UserType } from "../types/UserType";
 import { commentType } from "../types/ArticleType";
 import { useState } from "react";
 import "../styles/Comment.scss";
 
-type CommentProps = commentType & UserType;
-
-export default function Comment({ comment }: { comment: CommentProps }) {
+export default function Comment({ comment }: { comment: commentType }) {
   const [commentState, setCommentState] = useState(1);
   const isOpen = commentState === 1;
 
