@@ -1,9 +1,4 @@
-export type commentType = {
-  user: { username: string };
-  text: string;
-  date: string;
-  _id: string;
-};
+import { CommentType } from "./CommentType";
 
 export type ArticleProps = {
   cover: string;
@@ -11,7 +6,7 @@ export type ArticleProps = {
   author: {
     username: string;
   };
-  comments: commentType[];
+  comments: CommentType[];
   content: string;
   date: string;
   featured: boolean;
