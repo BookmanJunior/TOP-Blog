@@ -1,4 +1,4 @@
-import ArticleFeed from "../components/ArticleFeed";
+import ArticlePreview from "../components/ArticlePreview";
 import FeaturedArticle from "../components/FeaturedArticle";
 import ArticlesFetch from "../components/ArticlesFetch";
 
@@ -21,7 +21,15 @@ export default function Home() {
   return (
     <>
       <FeaturedArticle article={featuredArticle} />
-      <ArticleFeed articles={data} />
+      <section className="article-feed">
+        {data.length ? (
+          data.map((article) => (
+            <ArticlePreview key={article._id} article={article} />
+          ))
+        ) : (
+          <div>No Articles</div>
+        )}
+      </section>
     </>
   );
 }

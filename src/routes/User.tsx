@@ -1,4 +1,5 @@
-import ArticleFeed from "../components/ArticleFeed";
+import ArticlePreview from "../components/ArticlePreview";
+import { ArticleProps } from "../types/ArticleType";
 import { UseUser } from "./Root";
 
 export default function User() {
@@ -10,11 +11,21 @@ export default function User() {
       <div className="user-bookmarks">
         <h2>Bookmarks</h2>
         {isBookmarks ? (
-          <ArticleFeed articles={user.bookmarks} />
+          <BookmarkedArticles bookmarks={user.bookmarks} />
         ) : (
           <div>You don't have any bookmarked articles</div>
         )}
       </div>
     </>
+  );
+}
+
+function BookmarkedArticles({ bookmarks }: { bookmarks: ArticleProps[] }) {
+  return (
+    <section className="bookmarked-articles">
+      {bookmarks.map((article) => (
+        <ArticlePreview key={article._id} article={article} />
+      ))}
+    </section>
   );
 }
