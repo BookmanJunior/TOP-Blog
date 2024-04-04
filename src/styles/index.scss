@@ -75,6 +75,36 @@ article a {
   color: #000000;
 }
 
+.bookmark-button {
+  transition: 100ms ease-in;
+
+  &:active {
+    scale: 1.2;
+  }
+}
+
+.bookmarked #bookmark {
+  fill: #000000;
+  transition: 100ms ease-in;
+
+  &:hover {
+    fill: transparent;
+  }
+}
+
+#bookmark {
+  fill: transparent;
+  transition: 100ms ease-in;
+
+  &:hover {
+    fill: #000000;
+  }
+}
+
+.bookmark-logo {
+  stroke: #000000;
+}
+
 .error {
   color: var(--color-warning);
 }
