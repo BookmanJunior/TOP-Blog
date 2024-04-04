@@ -36,7 +36,7 @@ function Logo() {
 function AuthenticatedLinks({ setUser }: SetUserType) {
   return (
     <>
-      <Link to={"account"} title={"Account"} />
+      <Link to={"me"} title={"Account"} />
       <LogOutForm setUser={setUser} />
     </>
   );
