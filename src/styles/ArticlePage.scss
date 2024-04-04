@@ -16,9 +16,9 @@
     margin-inline: auto;
   }
 
-  h1,
   .article-body,
-  .article-comments {
+  .article-comments,
+  .article-title-wrapper {
     padding: var(--small-gap) var(--big-gap);
   }
 
@@ -26,6 +26,12 @@
     display: flex;
     gap: 0.5rem;
     padding: var(--small-gap) var(--big-gap) 0 var(--big-gap);
+  }
+
+  .article-title-wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
   }
 
   h1 {
