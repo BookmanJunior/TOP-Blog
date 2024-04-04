@@ -50,6 +50,12 @@ $article-width: 18.75rem;
     font-size: 1rem;
     font-weight: 600;
   }
+
+  .article-buttons {
+    display: flex;
+    gap: 0.5rem;
+    justify-content: end;
+  }
 }
 
 .article__info > div:last-child {
