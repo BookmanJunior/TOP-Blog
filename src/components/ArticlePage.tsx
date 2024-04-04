@@ -8,6 +8,7 @@ import "../styles/ArticlePage.scss";
 import { UseUser } from "../routes/Root";
 import ArticleLoader from "./ArticleLoader";
 import { UserType } from "../types/UserType";
+import Bookmark from "./BookmarkButton";
 
 export default function ArticlePage() {
   const { user } = UseUser();
@@ -37,7 +38,10 @@ function ArticleHeader({ article }: { article: ArticleProps }) {
         <span>-</span>
         <p>{format(article.date, "PPP")}</p>
       </div>
-      <h1>{article.title}</h1>
+      <div className="article-title-wrapper">
+        <h1>{article.title}</h1>
+        <Bookmark articleId={article._id} />
+      </div>
     </header>
   );
 }
