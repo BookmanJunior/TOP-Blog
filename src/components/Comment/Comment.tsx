@@ -1,7 +1,7 @@
 import { format } from "date-fns";
 import { useState } from "react";
-import "../styles/Comment.scss";
 import { CommentType } from "../../types/CommentType";
+import "../../styles/Comment.scss";
 
 export default function Comment({ comment }: { comment: CommentType }) {
   const [commentState, setCommentState] = useState(1);
