@@ -10,13 +10,15 @@ export default function Bookmark({ articleId }: { articleId: string }) {
   );
 
   return (
-    <form onSubmit={handleBookmark}>
-      <button disabled={loading} className="bookmark-button">
-        <BookmarkLogo
-          className={`bookmark-logo ${isBookmarked ? "bookmarked" : ""}`}
-        />
-      </button>
-    </form>
+    user && (
+      <form onSubmit={handleBookmark}>
+        <button disabled={loading} className="bookmark-button">
+          <BookmarkLogo
+            className={`bookmark-logo ${isBookmarked ? "bookmarked" : ""}`}
+          />
+        </button>
+      </form>
+    )
   );
 
   async function handleBookmark(e: React.FormEvent) {
