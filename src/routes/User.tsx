@@ -1,4 +1,4 @@
-import ArticlePreview from "../components/ArticlePreview";
+import ArticlePreview from "../components/Article/ArticlePreview";
 import { ArticleProps } from "../types/ArticleType";
 import { UseUser } from "./Root";
 

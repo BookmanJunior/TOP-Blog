@@ -1,5 +1,5 @@
-import ArticlePreview from "../components/ArticlePreview";
-import FeaturedArticle from "../components/FeaturedArticle";
+import ArticlePreview from "../components/Article/ArticlePreview";
+import FeaturedArticle from "../components/Article/FeaturedArticle";
 import ArticlesFetch from "../components/ArticlesFetch";
 
 export default function Home() {
