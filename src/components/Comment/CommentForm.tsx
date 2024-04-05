@@ -1,6 +1,6 @@
 import { useRef, useState } from "react";
-import ValidationError from "./InputValidationError";
-import { ArticleProps } from "../types/ArticleType";
+import ValidationError from "../InputValidationError";
+import { ArticleProps } from "../../types/ArticleType";
 
 type CommentFormError = {
   comment?: string;

@@ -1,14 +1,14 @@
 import { Link, useLocation } from "react-router-dom";
-import { ArticleProps } from "../types/ArticleType";
-import Comment from "./Comment";
-import CommentForm from "./CommentForm";
+import { ArticleProps } from "../../types/ArticleType";
+import Comment from "../Comment/Comment";
+import CommentForm from "../Comment/CommentForm";
 import Markdown from "react-markdown";
 import { format } from "date-fns";
 import "../styles/ArticlePage.scss";
-import { UseUser } from "../routes/Root";
-import ArticleLoader from "./ArticleLoader";
-import { UserType } from "../types/UserType";
-import Bookmark from "./BookmarkButton";
+import { UseUser } from "../../routes/Root";
+import ArticleLoader from "../ArticleLoader";
+import { UserType } from "../../types/UserType";
+import Bookmark from "../BookmarkButton";
 
 export default function ArticlePage() {
   const { user } = UseUser();

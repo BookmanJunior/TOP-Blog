@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { ArticleProps } from "../types/ArticleType";
+import { ArticleProps } from "../../types/ArticleType";
 import "../styles/FeaturedArticle.scss";
 
 export default function FeaturedArticle({
