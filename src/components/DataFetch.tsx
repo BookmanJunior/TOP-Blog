@@ -11,12 +11,11 @@ type FetchResult<T> = {
 
 export default function DataFetch<T>(apiEndpoint: string): FetchResult<T> {
   const [data, setData] = useState<T | undefined>();
-  const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState(true);
   const [error, setError] = useState<ErrorType>();
 
   useEffect(() => {
     async function fetchData() {
-      setLoading(true);
       try {
         const res = await fetch(apiEndpoint, {
           method: "GET",
