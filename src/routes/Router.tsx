@@ -5,12 +5,14 @@ import ArticlePage from "./ArticlePage";
 import Login from "./Login";
 import SignUp from "./SignUp";
 import User from "./User";
+import ErrorElement from "../components/ErrorElements";
 
 export default function Router() {
   const router = createBrowserRouter([
     {
       path: "/",
       element: <Root />,
+      errorElement: <ErrorElement />,
       children: [
         { index: true, element: <Home /> },
         {
