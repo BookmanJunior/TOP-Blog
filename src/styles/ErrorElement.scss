@@ -1,0 +1,46 @@
+.error-element {
+  --sizing: 1rem;
+
+  min-height: calc(100vh - 60px);
+
+  display: grid;
+  place-content: center;
+  font-size: calc(var(--sizing) + 0.5rem);
+  text-align: center;
+  line-height: 1;
+
+  h1 {
+    color: transparent;
+    -webkit-text-stroke-width: 2px;
+    -webkit-text-stroke-color: var(--primary-bg);
+    mix-blend-mode: difference;
+  }
+
+  h1,
+  h2 {
+    font-size: clamp(8rem, 2.7273rem + 9.697vw, 10rem);
+    grid-area: 1 / 1 / 1 / 1;
+    letter-spacing: 2px;
+  }
+
+  p,
+  button,
+  a {
+    margin-block: var(--sizing);
+  }
+
+  button,
+  a {
+    text-decoration: none;
+    border: 1px solid;
+    padding: var(--sizing);
+    border-radius: 8px;
+    background-color: var(--color-accent);
+    color: var(--primary-bg);
+  }
+}
+
+.error-header {
+  display: grid;
+  place-items: center;
+}
