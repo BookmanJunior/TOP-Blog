@@ -1,7 +1,7 @@
 import Nav from "../components/Nav";
 import { Outlet, useOutletContext } from "react-router-dom";
 import { UserType, SetUserType } from "../types/UserType";
-import AutoLoginFetch from "../components/AutoLoginFetch";
+import { useState, useEffect } from "react";
 
 type RootContext = {
   user: UserType | null;
@@ -9,7 +9,30 @@ type RootContext = {
 } & SetUserType;
 
 export default function Root() {
-  const { user, setUser, loading } = AutoLoginFetch();
+  const [user, setUser] = useState<UserType | null>(null);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    async function autoLogin() {
+      try {
+        const res = await fetch("http://localhost:3000/auto-login", {
+          method: "POST",
+          mode: "cors",
+          credentials: "include",
+        });
+
+        if (res.ok) {
+          const resData: UserType = await res.json();
+          setUser(resData);
+        }
+      } catch (error) {
+        console.log(error);
+      } finally {
+        setLoading(false);
+      }
+    }
+    autoLogin();
+  }, []);
 
   return (
     <>
