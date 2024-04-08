@@ -1,6 +1,7 @@
 import ArticlePreview from "../components/Article/ArticlePreview";
 import FeaturedArticle from "../components/Article/FeaturedArticle";
 import DataFetch from "../components/DataFetch";
+import Spinner from "../components/Spinner";
 import { ArticleProps } from "../types/ArticleType";
 
 export default function Home() {
@@ -10,7 +11,7 @@ export default function Home() {
   const featuredArticle = data?.filter((article) => article.featured)[0];
 
   if (loading) {
-    return <div className="spinner"></div>;
+    return <Spinner />;
   }
 
   if (error) {

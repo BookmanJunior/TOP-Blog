@@ -5,6 +5,7 @@ import DataFetch from "../components/DataFetch";
 import ArticleHeader from "../components/Article/ArticleHeader";
 import ArticleBody from "../components/Article/ArticleBody";
 import ArticleComments from "../components/Article/ArticleComments";
+import Spinner from "../components/Spinner";
 import "../styles/ArticlePage.scss";
 
 export default function ArticlePage() {
@@ -15,7 +16,7 @@ export default function ArticlePage() {
   );
 
   if (loading) {
-    return <div className="spinner"></div>;
+    return <Spinner />;
   }
 
   if (error) {
