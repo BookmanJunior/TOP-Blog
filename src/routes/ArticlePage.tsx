@@ -1,29 +1,38 @@
-import { Link, useLocation } from "react-router-dom";
+import { Link, useLocation, useParams } from "react-router-dom";
 import { ArticleProps } from "../types/ArticleType";
 import Comment from "../components/Comment/Comment";
 import CommentForm from "../components/Comment/CommentForm";
 import Markdown from "react-markdown";
 import { format } from "date-fns";
 import { UseUser } from "./Root";
-import ArticleLoader from "../components/ArticleLoader";
 import { UserType } from "../types/UserType";
 import Bookmark from "../components/BookmarkButton";
+import DataFetch from "../components/DataFetch";
 import "../styles/ArticlePage.scss";
 
 export default function ArticlePage() {
   const { user } = UseUser();
-  const { article, setArticle, loading } = ArticleLoader();
+  const { id } = useParams();
+  const { data, setData, error, loading } = DataFetch<ArticleProps>(
+    `http://localhost:3000/articles/${id}`
+  );
 
   if (loading) {
     return <div className="spinner"></div>;
   }
 
+  if (error) {
+    throw error;
+  }
+
   return (
-    <main className="article-page">
-      <ArticleHeader article={article} />
-      <ArticleBody article={article} />
-      <CommentSection article={article} setArticle={setArticle} user={user} />
-    </main>
+    data && (
+      <main className="article-page">
+        <ArticleHeader article={data} />
+        <ArticleBody article={data} />
+        <CommentSection article={data} setArticle={setData} user={user} />
+      </main>
+    )
   );
 }
 
