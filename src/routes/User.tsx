@@ -3,6 +3,7 @@ import ArticlePreview from "../components/Article/ArticlePreview";
 import { ArticleProps } from "../types/ArticleType";
 import { UseUser } from "./Root";
 import Spinner from "../components/Spinner";
+import "../styles/User.scss";
 
 export default function User() {
   const { user, loading } = UseUser();
