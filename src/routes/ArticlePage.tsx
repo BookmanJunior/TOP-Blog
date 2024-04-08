@@ -3,11 +3,11 @@ import { ArticleProps } from "../types/ArticleType";
 import Comment from "../components/Comment/Comment";
 import CommentForm from "../components/Comment/CommentForm";
 import Markdown from "react-markdown";
-import { format } from "date-fns";
 import { UseUser } from "./Root";
 import { UserType } from "../types/UserType";
 import Bookmark from "../components/BookmarkButton";
 import DataFetch from "../components/DataFetch";
+import ArticleInfo from "../components/Article/ArticleInfo";
 import "../styles/ArticlePage.scss";
 
 export default function ArticlePage() {
@@ -40,16 +40,16 @@ function ArticleHeader({ article }: { article: ArticleProps }) {
   return (
     <header className="article-header">
       <img src={article.cover} />
-      <div className="article-author">
-        <p>
-          By <strong>{article.author.username}</strong>
-        </p>
-        <span>-</span>
-        <p>{format(article.date, "PPP")}</p>
-      </div>
-      <div className="article-title-wrapper">
-        <h1>{article.title}</h1>
-        <Bookmark articleId={article._id} />
+      <div className="article-info-wrapper">
+        <ArticleInfo
+          className="article-info"
+          author={article.author.username}
+          date={article.date}
+        />
+        <div className="article-title-wrapper">
+          <h1>{article.title}</h1>
+          <Bookmark articleId={article._id} />
+        </div>
       </div>
     </header>
   );
