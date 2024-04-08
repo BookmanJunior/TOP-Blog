@@ -1,5 +1,5 @@
 import { ArticleProps } from "../../types/ArticleType";
-import Bookmark from "../BookmarkButton";
+import Bookmark from "./BookmarkButton";
 import ArticleInfo from "./ArticleInfo";
 
 export default function ArticleHeader({ article }: { article: ArticleProps }) {

@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { ArticleProps } from "../../types/ArticleType";
-import Bookmark from "../BookmarkButton";
+import Bookmark from "./BookmarkButton";
 import ArticleInfo from "./ArticleInfo";
 import "../../styles/ArticleFeed.scss";
 
