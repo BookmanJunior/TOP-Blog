@@ -1,6 +1,6 @@
-import { format } from "date-fns";
 import { useState } from "react";
 import { CommentType } from "../../types/CommentType";
+import FormattedDate from "../FormattedDate";
 import "../../styles/Comment.scss";
 
 export default function Comment({ comment }: { comment: CommentType }) {
@@ -19,7 +19,7 @@ export default function Comment({ comment }: { comment: CommentType }) {
     <div className="comment">
       <div className="comment-header">
         <p className="comment-author">{comment.user?.username}</p>
-        <span className="comment-date">{format(comment.date, "MMM d")}</span>
+        <FormattedDate className="comment-date" date={comment.date} />
         <button onClick={() => setCommentState(isOpen ? 0 : 1)}></button>
       </div>
       <div className="comment-body" data-expanded={`${isOpen}`}>
