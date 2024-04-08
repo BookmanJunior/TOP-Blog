@@ -1,13 +1,23 @@
+import { Navigate } from "react-router-dom";
 import ArticlePreview from "../components/Article/ArticlePreview";
 import { ArticleProps } from "../types/ArticleType";
 import { UseUser } from "./Root";
+import Spinner from "../components/Spinner";
 
 export default function User() {
-  const { user } = UseUser();
+  const { user, loading } = UseUser();
   const isBookmarks = user?.bookmarks?.length;
 
+  if (loading) {
+    return <Spinner />;
+  }
+
+  if (!user) {
+    return <Navigate to="/login" replace state={{ redirectTo: "/me" }} />;
+  }
+
   return (
-    <>
+    <div className="user-profile">
       <div className="user-bookmarks">
         <h2>Bookmarks</h2>
         {isBookmarks ? (
@@ -16,7 +26,7 @@ export default function User() {
           <div>You don't have any bookmarked articles</div>
         )}
       </div>
-    </>
+    </div>
   );
 }
 
