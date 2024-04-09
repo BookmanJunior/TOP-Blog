@@ -25,11 +25,11 @@ export default function ArticlePage() {
 
   return (
     data && (
-      <main className="article-page">
+      <article className="article-page">
         <ArticleHeader article={data} />
         <ArticleBody article={data} />
         <ArticleComments article={data} setArticle={setData} user={user} />
-      </main>
+      </article>
     )
   );
 }
