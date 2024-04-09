@@ -18,22 +18,22 @@ export default function User() {
   }
 
   return (
-    <div className="user-profile">
-      <div className="user-bookmarks">
-        <h2>Bookmarks</h2>
+    <main className="user-profile">
+      <section className="user-bookmarks">
+        <h2 className="section-title">Bookmarks</h2>
         {isBookmarks ? (
           <BookmarkedArticles bookmarks={user.bookmarks} />
         ) : (
           <div>You don't have any bookmarked articles</div>
         )}
-      </div>
-    </div>
+      </section>
+    </main>
   );
 }
 
 function BookmarkedArticles({ bookmarks }: { bookmarks: ArticleProps[] }) {
   return (
-    <section className="bookmarked-articles">
+    <section className="bookmarked-articles article-row">
       {bookmarks.map((article) => (
         <ArticlePreview key={article._id} article={article} />
       ))}
