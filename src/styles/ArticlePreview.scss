@@ -1,20 +1,5 @@
-$article-width: 18.75rem;
-
-.article-feed {
-  font-family: var(--secondary-font);
-  max-width: var(--primary-width);
-  margin-inline: auto;
-  padding-block: 2rem;
-
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax($article-width, 1fr));
-  gap: 1rem;
-  justify-items: center;
-}
-
 .article-preview {
   border-radius: var(--primary-border-radius);
-  max-width: $article-width;
   overflow: hidden;
   outline: var(--primary-outline);
 
@@ -23,7 +8,6 @@ $article-width: 18.75rem;
 
   .article-preview-body {
     background-color: var(--secondary-bg);
-    width: $article-width;
     padding: 1rem;
 
     display: grid;
@@ -37,7 +21,6 @@ $article-width: 18.75rem;
   img {
     height: 100%;
     margin-inline: auto;
-    object-fit: cover;
   }
 
   a {
