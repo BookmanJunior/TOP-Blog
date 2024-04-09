@@ -1,6 +1,6 @@
 import { useState } from "react";
-import BookmarkLogo from "../assets/bookmark-full.svg?react";
-import { UseUser } from "../routes/Root";
+import BookmarkLogo from "../../assets/bookmark-full.svg?react";
+import { UseUser } from "../../routes/Root";
 
 export default function Bookmark({ articleId }: { articleId: string }) {
   const [loading, setLoading] = useState(false);
