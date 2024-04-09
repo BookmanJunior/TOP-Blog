@@ -19,9 +19,9 @@ export default function Home() {
   }
 
   return (
-    <>
+    <main>
       <FeaturedArticle article={featuredArticle} />
-      <section className="article-feed">
+      <section className="article-feed article-row">
         {data ? (
           data.map((article) => (
             <ArticlePreview key={article._id} article={article} />
@@ -30,6 +30,6 @@ export default function Home() {
           <div>No Articles</div>
         )}
       </section>
-    </>
+    </main>
   );
 }
