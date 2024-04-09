@@ -11,7 +11,7 @@ export default function Bookmark({ articleId }: { articleId: string }) {
 
   return (
     user && (
-      <form onSubmit={handleBookmark}>
+      <form className="bookmark-form" onSubmit={handleBookmark}>
         <button disabled={loading} className="bookmark-button">
           <BookmarkLogo
             className={`bookmark-logo ${isBookmarked ? "bookmarked" : ""}`}
