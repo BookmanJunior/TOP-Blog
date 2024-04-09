@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import { ArticleProps } from "../../types/ArticleType";
 import Bookmark from "./BookmarkButton";
 import ArticleInfo from "./ArticleInfo";
-import "../../styles/ArticleFeed.scss";
+import "../../styles/ArticlePreview.scss";
 
 export default function ArticlePreview({ article }: { article: ArticleProps }) {
   return (
