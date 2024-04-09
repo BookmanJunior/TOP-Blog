@@ -35,3 +35,9 @@ nav {
     }
   }
 }
+
+@media screen and (max-width: 965px) {
+  .nav-wrapper {
+    padding-inline: 1rem;
+  }
+}
