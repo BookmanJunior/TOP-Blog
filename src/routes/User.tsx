@@ -24,7 +24,7 @@ export default function User() {
         {isBookmarks ? (
           <BookmarkedArticles bookmarks={user.bookmarks} />
         ) : (
-          <div>You don't have any bookmarked articles</div>
+          <p>You don't have any bookmarked articles</p>
         )}
       </section>
     </main>
