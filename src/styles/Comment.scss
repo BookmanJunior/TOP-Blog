@@ -62,12 +62,12 @@
 
   .comment-date {
     color: #575757;
+    font-style: italic;
   }
 }
 
 .comment-header {
   & > button {
-    display: inline-block;
     transition: rotate 200ms ease-out;
     display: grid;
     place-content: center;
@@ -93,5 +93,14 @@
 
   & > div {
     overflow: hidden;
+  }
+
+  form {
+    border-top: var(--primary-outline);
+    margin-top: 0.3rem;
+  }
+
+  form button {
+    margin-top: 0.3rem;
   }
 }
