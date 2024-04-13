@@ -61,7 +61,7 @@ export default function Comment({ comment, handleDelete }: CommentProps) {
 function CommentDeleteButton({ commentId, handleDelete }: DeleteButtonProps) {
   return (
     <form onSubmit={handleSubmit}>
-      <button>Delete Comment</button>
+      <button>Delete</button>
     </form>
   );
 
