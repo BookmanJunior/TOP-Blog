@@ -1,5 +1,5 @@
 export type CommentType = {
-  user: { username: string } | null;
+  user: { username: string; _id: string } | null;
   text: string;
   date: string;
   deleted: boolean;
