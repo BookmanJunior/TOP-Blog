@@ -6,7 +6,7 @@ import { UseUser } from "./Root";
 import { UserType } from "../types/UserType";
 
 type LoginErrors = {
-  credentials?: string;
+  message?: string;
   networkError?: string;
 };
 
@@ -21,7 +21,7 @@ export default function Login() {
     <form onSubmit={handleSubmit} className="login-form">
       <FormInput name="username" />
       <FormInput name="password" type="password" />
-      <ValidationError error={errors?.credentials} />
+      <ValidationError error={errors?.message} />
       <ValidationError error={errors?.networkError} />
       <button className="submit-button" disabled={submitting}>
         Login
