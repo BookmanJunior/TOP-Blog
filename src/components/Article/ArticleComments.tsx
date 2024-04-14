@@ -4,6 +4,7 @@ import Comment from "../Comment/Comment";
 import CommentForm from "../Comment/CommentForm";
 import { UserType } from "../../types/UserType";
 import { CommentType } from "../../types/CommentType";
+import NoComment from "../../assets/no-comment.png";
 
 type CommentSectionProps = {
   article: ArticleProps;
@@ -23,13 +24,17 @@ export default function ArticleComments({
       ) : (
         <UnAuthorizedLinks />
       )}
-      {article.comments.map((comment) => (
-        <Comment
-          key={comment._id}
-          comment={comment}
-          handleDelete={deleteComment}
-        />
-      ))}
+      {article.comments.length ? (
+        article.comments.map((comment) => (
+          <Comment
+            key={comment._id}
+            comment={comment}
+            handleDelete={deleteComment}
+          />
+        ))
+      ) : (
+        <NoComments />
+      )}
     </section>
   );
 
@@ -43,6 +48,19 @@ export default function ArticleComments({
     });
     setArticle({ ...article, comments: updatedComments });
   }
+}
+
+function NoComments() {
+  return (
+    <div className="empty-comments">
+      <img src={NoComment} alt="no comment icon" />
+      <h2>Be the first to comment</h2>
+      <p>
+        Nobody's commented on this article yet. Share your thoughts and get the
+        conversation going.
+      </p>
+    </div>
+  );
 }
 
 function UnAuthorizedLinks() {
