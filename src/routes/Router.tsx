@@ -6,6 +6,7 @@ import Login from "./Login";
 import SignUp from "./SignUp";
 import User from "./User";
 import ErrorElement from "../components/ErrorElements";
+import CategoryPage from "./CategoryPage";
 
 export default function Router() {
   const router = createBrowserRouter([
@@ -24,6 +25,10 @@ export default function Router() {
         {
           path: "me",
           element: <User />,
+        },
+        {
+          path: "category/:categoryName",
+          element: <CategoryPage />,
         },
       ],
     },
