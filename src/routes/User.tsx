@@ -24,7 +24,9 @@ export default function User() {
         {isBookmarks ? (
           <BookmarkedArticles bookmarks={user.bookmarks} />
         ) : (
-          <p>You don't have any bookmarked articles</p>
+          <p className="empty-section">
+            You don't have any bookmarked articles
+          </p>
         )}
       </section>
     </main>
@@ -33,10 +35,10 @@ export default function User() {
 
 function BookmarkedArticles({ bookmarks }: { bookmarks: ArticleProps[] }) {
   return (
-    <section className="bookmarked-articles article-row">
+    <div className="bookmarked-articles article-row">
       {bookmarks.map((article) => (
         <ArticlePreview key={article._id} article={article} />
       ))}
-    </section>
+    </div>
   );
 }
