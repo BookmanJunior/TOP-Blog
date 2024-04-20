@@ -6,7 +6,7 @@
   display: grid;
   grid-template-rows: 10.625rem auto;
 
-  .article-preview-body {
+  .article-preview-wrapper {
     background-color: var(--secondary-bg);
     padding: 1rem;
 
@@ -37,14 +37,26 @@
     font-size: 1rem;
     font-weight: 600;
   }
-
-  .article-preview-buttons {
-    display: flex;
-    gap: 0.5rem;
-    justify-content: end;
-  }
 }
 
-.article-preview-body > div:last-child {
-  align-self: end;
+.article-preview-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 0.7rem;
+
+  a {
+    align-self: center;
+
+    font-style: italic;
+    background-color: var(--primary-bg);
+    padding: 0.2rem 0.7rem;
+    border-radius: var(--primary-border-radius);
+    box-shadow: inset 0px 3px 5px 0px rgba(0, 0, 0, 0.2);
+  }
+
+  & > div {
+    display: flex;
+    gap: 0.5rem;
+  }
 }
