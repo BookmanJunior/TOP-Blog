@@ -17,12 +17,16 @@ export default function CategoryPage() {
 
   return (
     <main className="category-page">
-      <h2>{categoryName}</h2>
-      <section className="article-row">
-        {data?.map((article) => (
-          <ArticlePreview key={article._id} article={article} />
-        ))}
-      </section>
+      <h2 className="section-title">{categoryName}</h2>
+      {data ? (
+        <section className="article-row">
+          {data?.map((article) => (
+            <ArticlePreview key={article._id} article={article} />
+          ))}
+        </section>
+      ) : (
+        <p className="empty-section">This category is empty</p>
+      )}
     </main>
   );
 }
