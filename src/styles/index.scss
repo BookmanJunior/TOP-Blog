@@ -75,15 +75,12 @@ article a {
   color: #000000;
 }
 
-.article-feed {
-  margin-inline: auto;
-}
-
 .article-row {
   --grid-width: 300px;
 
   font-family: var(--secondary-font);
   max-width: var(--primary-width);
+  margin-inline: auto;
   padding-block: 2rem;
 
   display: grid;
@@ -95,7 +92,9 @@ article a {
   justify-content: center;
 }
 
-.section-title {
+.section-title,
+.empty-section {
+  text-transform: capitalize;
   text-align: center;
 }
 
