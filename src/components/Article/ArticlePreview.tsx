@@ -8,8 +8,8 @@ export default function ArticlePreview({ article }: { article: ArticleProps }) {
   return (
     <article className="article-preview">
       <img src={article.cover} alt={`${article.title} cover`} loading="lazy" />
-      <div className="article-preview-body">
-        <div>
+      <div className="article-preview-wrapper">
+        <div className="article-preview-body">
           <Link to={`/articles/${article._id}`}>
             <h2 className="article__title">{article.title}</h2>
           </Link>
@@ -19,9 +19,14 @@ export default function ArticlePreview({ article }: { article: ArticleProps }) {
             date={article.date}
           />
         </div>
-        <div className="article-preview-buttons">
-          <span>{article.comments.length} comments</span>
-          <Bookmark articleId={article._id} />
+        <div className="article-preview-footer">
+          <Link to={`/category/${article?.category?.title}`}>
+            {"#" + article?.category?.title}
+          </Link>
+          <div>
+            <span>{article.comments.length} comments</span>
+            <Bookmark articleId={article._id} />
+          </div>
         </div>
       </div>
     </article>
