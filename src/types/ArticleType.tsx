@@ -9,6 +9,10 @@ export type ArticleProps = {
   comments: CommentType[];
   content: string;
   date: string;
+  category: {
+    title: string;
+    _id: string;
+  };
   featured: boolean;
   _id: string;
 };
