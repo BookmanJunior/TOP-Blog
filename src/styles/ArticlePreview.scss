@@ -26,7 +26,6 @@
 
   a {
     text-decoration: none;
-    place-self: start;
 
     &:hover {
       opacity: 0.9;
@@ -44,16 +43,6 @@
   justify-content: space-between;
   align-items: center;
   margin-top: 0.7rem;
-
-  a {
-    align-self: center;
-
-    font-style: italic;
-    background-color: var(--primary-bg);
-    padding: 0.2rem 0.7rem;
-    border-radius: var(--primary-border-radius);
-    box-shadow: inset 0px 3px 5px 0px rgba(0, 0, 0, 0.2);
-  }
 
   & > div {
     display: flex;
