@@ -12,19 +12,22 @@
   margin-top: var(--big-gap);
 
   header > img {
-    max-height: 400px;
+    max-height: 550px;
     margin-inline: auto;
   }
 
   .article-body,
-  .article-comments,
-  .article-info-wrapper {
+  .article-comments {
     padding: var(--small-gap) var(--big-gap);
   }
 
   .article-info {
     display: flex;
     gap: 0.5rem;
+  }
+
+  .article-info-wrapper {
+    padding: var(--small-gap) var(--big-gap) 0 var(--big-gap);
   }
 
   .article-title-wrapper {
@@ -36,6 +39,8 @@
   h1 {
     padding-block: 0;
     line-height: 1;
+    font-size: 2rem;
+    margin-bottom: var(--small-gap);
   }
 }
 
@@ -44,6 +49,14 @@
   & > ul,
   ol {
     padding-inline: var(--small-gap);
+  }
+
+  p {
+    margin-block: var(--small-gap);
+
+    & > img {
+      margin-inline: auto;
+    }
   }
 
   h2,
