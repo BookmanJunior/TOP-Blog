@@ -20,7 +20,10 @@ export default function ArticlePreview({ article }: { article: ArticleProps }) {
           />
         </div>
         <div className="article-preview-footer">
-          <Link to={`/category/${article?.category?.title}`}>
+          <Link
+            className="category-tag"
+            to={`/category/${article?.category?.title}`}
+          >
             {"#" + article?.category?.title}
           </Link>
           <div>
