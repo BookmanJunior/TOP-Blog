@@ -92,6 +92,15 @@ article a {
   justify-content: center;
 }
 
+.category-tag {
+  text-decoration: none;
+  font-style: italic;
+  background-color: var(--primary-bg);
+  padding: 0.2rem 0.7rem;
+  border-radius: var(--primary-border-radius);
+  box-shadow: inset 0px 3px 5px 0px rgba(0, 0, 0, 0.2);
+}
+
 .section-title,
 .empty-section {
   text-transform: capitalize;
