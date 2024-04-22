@@ -3,11 +3,10 @@ import FeaturedArticle from "../components/Article/FeaturedArticle";
 import DataFetch from "../components/DataFetch";
 import Spinner from "../components/Spinner";
 import { ArticleProps } from "../types/ArticleType";
+import { URL } from "../helpers/getServerURL";
 
 export default function Home() {
-  const { data, error, loading } = DataFetch<ArticleProps[]>(
-    "http://localhost:3000/articles"
-  );
+  const { data, error, loading } = DataFetch<ArticleProps[]>(`${URL}/articles`);
   const featuredArticle = data?.filter((article) => article.featured)[0];
 
   if (loading) {

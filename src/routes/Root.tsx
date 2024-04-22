@@ -2,6 +2,7 @@ import Nav from "../components/Nav";
 import { Outlet, useOutletContext } from "react-router-dom";
 import { UserType, SetUserType } from "../types/UserType";
 import { useState, useEffect } from "react";
+import { URL } from "../helpers/getServerURL";
 
 type RootContext = {
   user: UserType | null;
@@ -15,7 +16,7 @@ export default function Root() {
   useEffect(() => {
     async function autoLogin() {
       try {
-        const res = await fetch("http://localhost:3000/auto-login", {
+        const res = await fetch(`${URL}/auto-login`, {
           method: "POST",
           mode: "cors",
           credentials: "include",

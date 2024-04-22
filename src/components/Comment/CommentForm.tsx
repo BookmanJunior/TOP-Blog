@@ -1,6 +1,7 @@
 import { useRef, useState } from "react";
 import ValidationError from "../InputValidationError";
 import { ArticleProps } from "../../types/ArticleType";
+import { URL } from "../../helpers/getServerURL";
 
 type CommentFormError = {
   comment?: string;
@@ -43,7 +44,7 @@ export default function CommentForm({ article, setArticle }: CommentFormProps) {
 
     setIsSubmitting(true);
     try {
-      const res = await fetch("http://localhost:3000/comments", {
+      const res = await fetch(`${URL}/comments`, {
         method: "POST",
         mode: "cors",
         credentials: "include",

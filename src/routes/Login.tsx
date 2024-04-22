@@ -4,6 +4,7 @@ import ValidationError from "../components/InputValidationError";
 import { useNavigate, useLocation } from "react-router-dom";
 import { UseUser } from "./Root";
 import { UserType } from "../types/UserType";
+import { URL } from "../helpers/getServerURL";
 
 type LoginErrors = {
   message?: string;
@@ -35,7 +36,7 @@ export default function Login() {
 
     try {
       setSubmitting(true);
-      const res = await fetch("http://localhost:3000/login", {
+      const res = await fetch(`${URL}/login`, {
         method: "POST",
         mode: "cors",
         credentials: "include",

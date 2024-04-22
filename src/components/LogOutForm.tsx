@@ -1,5 +1,6 @@
 import { SetUserType } from "../types/UserType";
 import { useNavigate } from "react-router-dom";
+import { URL } from "../helpers/getServerURL";
 
 export default function LogOutForm({ setUser }: SetUserType) {
   const navigate = useNavigate();
@@ -13,7 +14,7 @@ export default function LogOutForm({ setUser }: SetUserType) {
     e.preventDefault();
 
     try {
-      const res = await fetch("http://localhost:3000/log-out", {
+      const res = await fetch(`${URL}/log-out`, {
         method: "DELETE",
         mode: "cors",
         credentials: "include",

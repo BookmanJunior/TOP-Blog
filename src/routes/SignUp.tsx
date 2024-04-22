@@ -4,6 +4,7 @@ import FormInput from "../components/FormInput";
 import ValidationError from "../components/InputValidationError";
 import { UseUser } from "./Root";
 import { UserType } from "../types/UserType";
+import { URL } from "../helpers/getServerURL";
 import "../styles/SignUp.scss";
 
 type Credentials = {
@@ -112,7 +113,7 @@ export default function SingUp() {
 
     setSubmitting(true);
     try {
-      const res = await fetch("http://localhost:3000/sign-up", {
+      const res = await fetch(`${URL}/sign-up`, {
         method: "POST",
         mode: "cors",
         credentials: "include",

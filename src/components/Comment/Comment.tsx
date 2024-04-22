@@ -3,6 +3,7 @@ import { CommentType } from "../../types/CommentType";
 import FormattedDate from "../FormattedDate";
 import "../../styles/Comment.scss";
 import { UseUser } from "../../routes/Root";
+import { URL } from "../../helpers/getServerURL";
 
 type handleDelete = (commentId: string) => void;
 
@@ -69,7 +70,7 @@ function CommentDeleteButton({ commentId, handleDelete }: DeleteButtonProps) {
     e.preventDefault();
 
     try {
-      const res = await fetch(`http://localhost:3000/comments/${commentId}`, {
+      const res = await fetch(`${URL}/comments/${commentId}`, {
         method: "DELETE",
         mode: "cors",
         credentials: "include",

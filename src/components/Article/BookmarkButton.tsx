@@ -1,6 +1,7 @@
 import { useState } from "react";
 import BookmarkLogo from "../../assets/bookmark-full.svg?react";
 import { UseUser } from "../../routes/Root";
+import { URL } from "../../helpers/getServerURL";
 
 export default function Bookmark({ articleId }: { articleId: string }) {
   const [loading, setLoading] = useState(false);
@@ -27,7 +28,7 @@ export default function Bookmark({ articleId }: { articleId: string }) {
     const fetchMethod = isBookmarked ? "DELETE" : "PUT";
 
     try {
-      const res = await fetch(`http://localhost:3000/me/${articleId}`, {
+      const res = await fetch(`${URL}/me/${articleId}`, {
         method: fetchMethod,
         mode: "cors",
         credentials: "include",

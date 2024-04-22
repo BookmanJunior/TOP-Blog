@@ -3,12 +3,13 @@ import DataFetch from "../components/DataFetch";
 import { ArticleProps } from "../types/ArticleType";
 import Spinner from "../components/Spinner";
 import ArticlePreview from "../components/Article/ArticlePreview";
+import { URL } from "../helpers/getServerURL";
 
 export default function CategoryPage() {
   const { categoryName } = useParams();
 
   const { data, loading, error } = DataFetch<ArticleProps[]>(
-    `http://localhost:3000/category/${categoryName}`
+    `${URL}/category/${categoryName}`
   );
 
   if (loading) return <Spinner />;
