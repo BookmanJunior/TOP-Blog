@@ -62,6 +62,7 @@ input {
   min-height: 100vh;
   background-color: var(--primary-bg);
   font-family: var(--primary-font);
+  color: var(--primary-font-clr);
 }
 
 .nav__link > a,
@@ -71,8 +72,9 @@ input {
 }
 
 .nav__link > a,
-article a {
-  color: #000000;
+article a,
+button {
+  color: inherit;
 }
 
 .article-row {
@@ -112,7 +114,7 @@ article a {
 }
 
 .bookmark-form {
-  --bookmark-btn-clr: #000000;
+  --bookmark-btn-clr: var(--primary-font-clr);
 
   height: 24px;
   flex-shrink: 0;
