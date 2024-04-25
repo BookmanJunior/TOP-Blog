@@ -28,6 +28,7 @@ export default function ThemeSwitcher() {
 
   return (
     <button
+      aria-label="switch theme"
       onClick={() => {
         const currTheme = theme === "" ? "dark" : "";
         setTheme(currTheme);
