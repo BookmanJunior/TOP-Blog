@@ -61,7 +61,7 @@
   }
 
   .comment-date {
-    color: #575757;
+    color: var(--secondary-font-clr);
     font-style: italic;
   }
 }
@@ -74,7 +74,7 @@
 
     &::before {
       content: "";
-      border: solid black;
+      border: solid var(--primary-font-clr);
       rotate: -135deg;
       border-width: 0 3px 3px 0;
       padding: 3px;
