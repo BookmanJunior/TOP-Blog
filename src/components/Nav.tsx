@@ -15,7 +15,9 @@ export default function Nav({ user, setUser }: NavProps) {
       <div className="nav-wrapper">
         <Logo />
         <ul className="nav__links">
-          <ThemeSwitcher />
+          <li className="theme-switcher">
+            <ThemeSwitcher />
+          </li>
           {user ? (
             <AuthenticatedLinks setUser={setUser} />
           ) : (
@@ -29,7 +31,7 @@ export default function Nav({ user, setUser }: NavProps) {
 
 function Logo() {
   return (
-    <NavLink className="nav__link" to="/">
+    <NavLink className="nav__link" to="/" aria-label="Logo">
       <LogoSvg />
     </NavLink>
   );
