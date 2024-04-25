@@ -26,6 +26,10 @@ nav {
     gap: 1rem;
   }
 
+  .nav__link path {
+    fill: var(--primary-font-clr);
+  }
+
   .nav__link.active,
   .nav__link .active {
     color: var(--color-accent);
