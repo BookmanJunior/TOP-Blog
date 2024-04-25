@@ -2,6 +2,7 @@ import { NavLink, useLocation } from "react-router-dom";
 import LogOutForm from "./LogOutForm";
 import { UserType, SetUserType } from "../types/UserType";
 import LogoSvg from "../assets/logo.svg?react";
+import ThemeSwitcher from "./ThemeSwitcher";
 import "../styles/Nav.scss";
 
 type NavProps = {
@@ -14,6 +15,7 @@ export default function Nav({ user, setUser }: NavProps) {
       <div className="nav-wrapper">
         <Logo />
         <ul className="nav__links">
+          <ThemeSwitcher />
           {user ? (
             <AuthenticatedLinks setUser={setUser} />
           ) : (
