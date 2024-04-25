@@ -8,7 +8,7 @@
 
 @mixin formButton {
   border-radius: 8px;
-  border: 1px solid transparent;
+  border: var(--primary-outline);
   padding: 0.6em 1.2em;
   width: min(200px, 100%);
   font-size: 1em;
@@ -16,14 +16,13 @@
   font-family: inherit;
   background-color: #1a1a1a;
   letter-spacing: 1px;
+  color: #ffffff;
   transition: border-color 0.25s;
-  color: var(--secondary-bg);
   margin-block: var(--small-gap);
 }
 
 .sign-up-form,
-.login-form,
-.article-form-wrapper {
+.login-form {
   @include flex($gap: 0.5rem);
   background-color: var(--secondary-bg);
   outline: var(--primary-outline);
@@ -80,17 +79,4 @@ label {
       outline-color: rgba(0, 0, 0, 0.3);
     }
   }
-}
-
-.article-form {
-  margin-inline: auto;
-
-  & > button {
-    @include formButton();
-  }
-}
-
-.article-form,
-.article-form-wrapper {
-  max-width: var(--primary-width);
 }
