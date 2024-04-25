@@ -5,6 +5,7 @@ import CommentForm from "../Comment/CommentForm";
 import { UserType } from "../../types/UserType";
 import { CommentType } from "../../types/CommentType";
 import NoComment from "../../assets/no-comment.png";
+import { useEffect, useRef } from "react";
 
 type CommentSectionProps = {
   article: ArticleProps;
@@ -16,8 +17,23 @@ export default function ArticleComments({
   setArticle,
   user,
 }: CommentSectionProps) {
+  const commentSectionRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const scrollToCommentSection =
+      location.href.indexOf("#commentSection") > -1;
+
+    if (commentSectionRef.current && scrollToCommentSection) {
+      commentSectionRef.current.scrollIntoView({ behavior: "smooth" });
+    }
+  }, []);
+
   return (
-    <section className="article-comments">
+    <section
+      className="article-comments"
+      id="commentSection"
+      ref={commentSectionRef}
+    >
       <h2 className="comment-count">{article.comments.length} comments</h2>
       {user ? (
         <CommentForm article={article} setArticle={setArticle} />
