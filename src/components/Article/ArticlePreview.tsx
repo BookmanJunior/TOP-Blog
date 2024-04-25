@@ -7,7 +7,13 @@ import "../../styles/ArticlePreview.scss";
 export default function ArticlePreview({ article }: { article: ArticleProps }) {
   return (
     <article className="article-preview">
-      <img src={article.cover} alt={`${article.title} cover`} loading="lazy" />
+      <Link to={`/articles/${article._id}`}>
+        <img
+          src={article.cover}
+          alt={`${article.title} cover`}
+          loading="lazy"
+        />
+      </Link>
       <div className="article-preview-wrapper">
         <div className="article-preview-body">
           <Link to={`/articles/${article._id}`}>
@@ -27,7 +33,9 @@ export default function ArticlePreview({ article }: { article: ArticleProps }) {
             {"#" + article?.category?.title}
           </Link>
           <div>
-            <span>{article.comments.length} comments</span>
+            <Link to={`/articles/${article._id}#commentSection`}>
+              {article.comments.length} comments
+            </Link>
             <Bookmark articleId={article._id} />
           </div>
         </div>
