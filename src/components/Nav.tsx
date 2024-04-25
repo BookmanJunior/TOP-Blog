@@ -41,7 +41,9 @@ function AuthenticatedLinks({ setUser }: SetUserType) {
   return (
     <>
       <Link to={"me"} title={"Account"} />
-      <LogOutForm setUser={setUser} />
+      <li>
+        <LogOutForm setUser={setUser} />
+      </li>
     </>
   );
 }
