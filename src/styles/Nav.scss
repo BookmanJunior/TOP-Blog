@@ -40,6 +40,10 @@ nav {
   }
 }
 
+.theme-switcher {
+  max-height: 24px;
+}
+
 @media screen and (max-width: 965px) {
   .nav-wrapper {
     padding-inline: 1rem;
