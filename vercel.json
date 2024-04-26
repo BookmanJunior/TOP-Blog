@@ -1,7 +1,7 @@
 {
   "rewrites": [
     {
-      "source": "https://top-blog-opal.vercel.app/articles/:path*",
+      "source": "/articles/:path*",
       "destination": "https://top-blog-opal.vercel.app/articles/:path*"
     }
   ]
