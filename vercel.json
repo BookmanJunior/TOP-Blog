@@ -1,0 +1,8 @@
+{
+  "rewrites": [
+    {
+      "source": "https://top-blog-opal.vercel.app/articles/:path*",
+      "destination": "https://top-blog-opal.vercel.app/articles/:path*"
+    }
+  ]
+}
